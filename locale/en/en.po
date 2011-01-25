@@ -1,0 +1,142 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Random PNJ Name Generator 1Beta 3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-01-25 23:29+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alfonso Saavedra 'Son Link' <sonlink.dourden@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: pnj.py:25
+#: pnj.py:168
+msgid "Generador de nombres aleatorios para PNJs"
+msgstr "Name generator for NPCs"
+
+#: pnj.py:33
+msgid "Elija el idioma:"
+msgstr "Select language:"
+
+#: pnj.py:42
+msgid "Español"
+msgstr "Spanish"
+
+#: pnj.py:43
+msgid "Japones"
+msgstr "Japanese"
+
+#: pnj.py:44
+msgid "Ingles"
+msgstr "English"
+
+#: pnj.py:45
+msgid "Portugués"
+msgstr "Portuguese"
+
+#: pnj.py:46
+msgid "Alemán"
+msgstr "German"
+
+#: pnj.py:47
+msgid "Francés"
+msgstr "Franche"
+
+#: pnj.py:48
+msgid "Italiano"
+msgstr "Italian"
+
+#: pnj.py:49
+msgid "Ruso"
+msgstr "Russian"
+
+#: pnj.py:50
+msgid "Musulmán"
+msgstr "muslin"
+
+#: pnj.py:51
+msgid "Chino"
+msgstr "Chinese"
+
+#: pnj.py:55
+msgid "Elija el sexo:"
+msgstr "Select sex:"
+
+#: pnj.py:64
+msgid "Masculino"
+msgstr "Male"
+
+#: pnj.py:65
+msgid "Femenino"
+msgstr "Female"
+
+#: pnj.py:68
+msgid "Total a generar (1-100):"
+msgstr "Total generating (1-100):"
+
+#: pnj.py:77
+msgid "Generar listado"
+msgstr "Generate list"
+
+#: pnj.py:81
+msgid "Guardar"
+msgstr "Save"
+
+#: pnj.py:86
+msgid "Sobre"
+msgstr "About"
+
+#: pnj.py:103
+msgid "Debes de seleccionar el idioma y el sexo"
+msgstr "You have select language an sex"
+
+#: pnj.py:132
+msgid ""
+"No se pudieron abrir los archivos de texto.\n"
+"Comprueba que están en los directorios correspondientes, que los nombres sean los correctos y/o que tengas permisos de lectura sobre ellos"
+msgstr ""
+"Could not open text files.\n"
+"Notes that are in the correct directories, the names are correct and/or have read permissions on them"
+
+#: pnj.py:143
+msgid "¡Atención!"
+msgstr "Attention"
+
+#: pnj.py:144
+msgid ""
+"El archivo ya existe.\n"
+"¿Desea sobreescribirlo?"
+msgstr ""
+"The file already exists.\n"
+"Replace?"
+
+#: pnj.py:163
+msgid ""
+"Ocurrió un error al guardar el archivo.\n"
+"Compruebe que tienes permisos de escritura en el directorio"
+msgstr ""
+"An error occurred while saving the file.\n"
+"Make sure you have write permissions on the directory"
+
+#: pnj.py:171
+msgid ""
+"Gracias a Desmenbrator por la idea.\n"
+"A javierrivera2 por sus consejos para mejorar el código\n"
+"Y como no, a todos vosotros por descargarlo y usarlo ^^"
+msgstr ""
+"With the idea Desmenbrator.\n"
+"A javierrivera2 for their advice to improve the code\n"
+"And of course, to you all for download and use"
+
+#: pnj.py:174
+msgid "Ingles: Son Link y Google"
+msgstr "English: Son Link & Google"
+
+#: pnj.py:182
+msgid "¡Error!"
+msgstr "Error!"
+

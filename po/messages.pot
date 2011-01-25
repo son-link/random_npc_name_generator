@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-01-25 23:29+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnj.py:25 pnj.py:168
+msgid "Generador de nombres aleatorios para PNJs"
+msgstr ""
+
+#: pnj.py:33
+msgid "Elija el idioma:"
+msgstr ""
+
+#: pnj.py:42
+msgid "Español"
+msgstr ""
+
+#: pnj.py:43
+msgid "Japones"
+msgstr ""
+
+#: pnj.py:44
+msgid "Ingles"
+msgstr ""
+
+#: pnj.py:45
+msgid "Portugués"
+msgstr ""
+
+#: pnj.py:46
+msgid "Alemán"
+msgstr ""
+
+#: pnj.py:47
+msgid "Francés"
+msgstr ""
+
+#: pnj.py:48
+msgid "Italiano"
+msgstr ""
+
+#: pnj.py:49
+msgid "Ruso"
+msgstr ""
+
+#: pnj.py:50
+msgid "Musulmán"
+msgstr ""
+
+#: pnj.py:51
+msgid "Chino"
+msgstr ""
+
+#: pnj.py:55
+msgid "Elija el sexo:"
+msgstr ""
+
+#: pnj.py:64
+msgid "Masculino"
+msgstr ""
+
+#: pnj.py:65
+msgid "Femenino"
+msgstr ""
+
+#: pnj.py:68
+msgid "Total a generar (1-100):"
+msgstr ""
+
+#: pnj.py:77
+msgid "Generar listado"
+msgstr ""
+
+#: pnj.py:81
+msgid "Guardar"
+msgstr ""
+
+#: pnj.py:86
+msgid "Sobre"
+msgstr ""
+
+#: pnj.py:103
+msgid "Debes de seleccionar el idioma y el sexo"
+msgstr ""
+
+#: pnj.py:132
+msgid ""
+"No se pudieron abrir los archivos de texto.\n"
+"Comprueba que están en los directorios correspondientes, que los nombres "
+"sean los correctos y/o que tengas permisos de lectura sobre ellos"
+msgstr ""
+
+#: pnj.py:143
+msgid "¡Atención!"
+msgstr ""
+
+#: pnj.py:144
+msgid ""
+"El archivo ya existe.\n"
+"¿Desea sobreescribirlo?"
+msgstr ""
+
+#: pnj.py:163
+msgid ""
+"Ocurrió un error al guardar el archivo.\n"
+"Compruebe que tienes permisos de escritura en el directorio"
+msgstr ""
+
+#: pnj.py:171
+msgid ""
+"Gracias a Desmenbrator por la idea.\n"
+"A javierrivera2 por sus consejos para mejorar el código\n"
+"Y como no, a todos vosotros por descargarlo y usarlo ^^"
+msgstr ""
+
+#: pnj.py:174
+msgid "Ingles: Son Link y Google"
+msgstr ""
+
+#: pnj.py:182
+msgid "¡Error!"
+msgstr ""
