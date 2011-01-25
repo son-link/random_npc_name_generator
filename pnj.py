@@ -72,14 +72,16 @@ class GUI():
 			generate.connect('clicked', self.generar)
 			vbox.pack_start(generate, False, False, 0)
 			
-			save = gtk.Button(label='Guardar')
-			save.connect('clicked', self.save_on_file)
-			vbox.pack_start(save, False, False, 0)
+			self.save = gtk.Button(label='Guardar')
+			self.save.set_sensitive(False)
+			self.save.connect('clicked', self.save_on_file)
+			vbox.pack_start(self.save, False, False, 0)
 			
 			hbox.pack_start(vbox, False, False, 0)
 			
 			textview_container = gtk.ScrolledWindow()
 			self.textview = gtk.TextView()
+			self.textview.set_editable(False)
 			textview_container.add(self.textview)
 			hbox.add(textview_container)
 			
@@ -89,44 +91,39 @@ class GUI():
 	def generar(self, w):
 		if not self.lang_select.get_active_text() or not self.sex_select.get_active_text():
 			self.error_dialog('Debes de seleccionar el idioma y el sexo')
-		else:	
+		else:
 			lang = self.lang_select.get_active_text()
 			sex = self.sex_select.get_active_text()
 			total = int(self.total_value.get_text())
 			# Comprobamos antes si existen los archivos
 			txt_names = 'nombres/'+sex+'_'+lang+'.txt'
 			txt_lastnames = 'apellidos/'+lang+'.txt'
-			if os.path.isfile(txt_names) or os.path.isfile(txt_lastnames):
-				# Si es asi, comprobamos que tenemos permisos de lectura
-				if not os.access(txt_names, os.R_OK) or not os.access(txt_lastnames, os.R_OK):
-					self.error_dialog('No tienes permisos de lectura en uno de los archivos')
-				else:
-					self.textview.set_buffer(None)
-					self.textbuffer = self.textview.get_buffer()
-					names = open(txt_names, 'r')
-					list_names = names.readlines()
-					lastnames = open(txt_lastnames, 'r')
-					list_lastnames = lastnames.readlines()
-					i = 1
-					while i <= total:
-						n = random.randint(0, len(list_names[1:]))
-						m = random.randint(0, len(list_lastnames[1:]))
-						name = list_names[n].split()[0]+" "+list_lastnames[m].split()[0]
-						i += 1
-						iter = self.textbuffer.get_end_iter()
-						self.textbuffer.insert(iter, name+"\n")
+			try:
+				self.textview.set_buffer(None)
+				self.textbuffer = self.textview.get_buffer()
+				names = open(txt_names, 'r')
+				list_names = names.readlines()
+				lastnames = open(txt_lastnames, 'r')
+				list_lastnames = lastnames.readlines()
+				i = 1
+				for i in range(0, total):
+					n = random.randint(0, len(list_names[1:]))
+					m = random.randint(0, len(list_lastnames[1:]))
+					name = list_names[n].split()[0]+" "+list_lastnames[m].split()[0]
+					i += 1
+					iter = self.textbuffer.get_end_iter()
+					self.textbuffer.insert(iter, name+"\n")
 						
-					names.close()
-					lastnames.close() 
+				names.close()
+				lastnames.close()
+				self.save.set_sensitive(True)
 						
-			else:
-				self.error_dialog('Los ficheros necesario no existen')
+			except:
+				self.error_dialog('No se pudieron abrir los archivos de texto.\nComprueba que están en los directorios correspondientes, que los nombres sean los correctos y/o que tengas permisos de lectura sobre ellos')
 				
 	def save_on_file(self, w):
-		print 'Guardando'
 		try:
 			txt = self.textbuffer.get_text(self.textbuffer.get_start_iter(), self.textbuffer.get_end_iter())
-			print txt
 			select_files = gtk.FileChooserDialog(title='Seleccione los ficheros a reproducir',action=gtk.FILE_CHOOSER_ACTION_SAVE, buttons=(gtk.STOCK_SAVE,gtk.RESPONSE_OK, gtk.STOCK_CANCEL,gtk.RESPONSE_CANCEL))
 			select_files.set_current_folder(os.environ['HOME'])
 			response = select_files.run()
@@ -143,13 +140,17 @@ class GUI():
 							f = open(select_files.get_filenames()[0], 'w')
 							f.write(txt)
 							f.close()
+							
 					warning.connect("response", close)
 					warning.run()
+				else:
+					f = open(select_files.get_filenames()[0], 'w')
+					f.write(txt)
+					f.close()
 			else:
 				select_files.hide()
-				
-		except:
-			self.error_dialog('Antes debes de generar un listado de nombres')
+		except IOError:
+			self.error_dialog('Ocurrió un error al guardar el archivo.\nCompruebe que tienes permisos de escritura en el directorio')
 				
 	def error_dialog(self, message):
 		warning = gtk.MessageDialog(parent=None, flags=0, type=gtk.MESSAGE_WARNING, buttons=gtk.BUTTONS_OK, message_format="¡Error!")

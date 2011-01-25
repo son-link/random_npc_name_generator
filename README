@@ -2,9 +2,17 @@ Generador de nombres aleatorios para personajes no jugadores (PNJs)
 Programa bajo licencia GPL 3
 Idea original de Desmenbrator
 Programado por Alfonso Saavedra "Son Link"
+Agradecimientos al usuario de la Comunidad Umbría javierrivera2 por sus consejos para optimizar el código ^^
 
 Para hacerlo funcionar solo descarga los archivos, da permidos de ejecucion al archivo pnj.py y ejecutarlo.
 Para ejucarto necesitas tener instalado los siguientes paquetes:
 
 python2.6
 python-gtk2
+
+Historia:
+1 Beta 1:
+Primera beta de programa.
+1 Beta 2:
+Se han corregido varias lineas del código para hacerlo mas claro y entendible.
+Se han corregido varios fallos en los archivos de texto (acentos en nombres y apellidos españoles y pasar a letra capital los apellidos chinos)
