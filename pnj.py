@@ -8,12 +8,18 @@
 
 import sys, os, random, gtk, gobject
 from optparse import OptionParser
-import gettext
-import locale
-	 
-gettext.textdomain("programita")  
-gettext.bindtextdomain("programita", "./locale")
-_ = gettext.gettext     
+import gettext, locale
+APP = 'pnj'
+gettext.textdomain (APP)
+gettext.bindtextdomain (APP, './locale')
+_ = gettext.gettext
+gettext.install(APP, './locale', unicode=1)
+
+loc = locale.getlocale()[0]
+if loc.find('es') == -1:
+	# Si el idioma del sistema no es el español en cualquiera de sus variantes, se coge el ingles por defecto
+	lang = gettext.translation(APP, './locale', languages=['en'])
+	lang.install()
 
 class GUI():
 	def __init__(self):
@@ -39,15 +45,15 @@ class GUI():
 			cell = gtk.CellRendererText()
 			self.lang_select.pack_start(cell, True)
 			self.lang_select.add_attribute(cell, 'text', 1)
-			liststore.append(['es', _('Español')])
+			liststore.append(['es', _(u'Español')])
 			liststore.append(['jp', _('Japones')])
 			liststore.append(['en', _('Ingles')])
-			liststore.append(['pt', _('Portugués')])
-			liststore.append(['ge', _('Alemán')])
-			liststore.append(['fr', _('Francés')])
+			liststore.append(['pt', _(u'Portugués')])
+			liststore.append(['ge', _(u'Alemán')])
+			liststore.append(['fr', _(u'Francés')])
 			liststore.append(['it', _('Italiano')])
 			liststore.append(['ru', _('Ruso')])
-			liststore.append(['ma', _('Musulmán')])
+			liststore.append(['ma', _(u'Musulmán')])
 			liststore.append(['ch', _('Chino')])
 			
 			vbox.pack_start(self.lang_select, False, False, 0)
@@ -97,6 +103,7 @@ class GUI():
 			
 			mainwin.add(hbox)
 			mainwin.show_all()
+			mainwin.connect('destroy', self.destroy)
 		
 	def generar(self, w):
 		if not self.lang_select.get_active_text() or not self.sex_select.get_active_text():
@@ -135,13 +142,12 @@ class GUI():
 		try:
 			txt = self.textbuffer.get_text(self.textbuffer.get_start_iter(), self.textbuffer.get_end_iter())
 			select_files = gtk.FileChooserDialog(title='Seleccione los ficheros a reproducir',action=gtk.FILE_CHOOSER_ACTION_SAVE, buttons=(gtk.STOCK_SAVE,gtk.RESPONSE_OK, gtk.STOCK_CANCEL,gtk.RESPONSE_CANCEL))
-			select_files.set_current_folder(os.environ['HOME'])
 			response = select_files.run()
 			if response == gtk.RESPONSE_OK:
 				select_files.hide()
 				if os.path.exists(select_files.get_filenames()[0]):
 					warning = gtk.MessageDialog(parent=None, flags=0, type=gtk.MESSAGE_WARNING, buttons=gtk.BUTTONS_YES_NO, message_format=_("¡Atención!"))
-					warning.format_secondary_text(_('El archivo ya existe.\n¿Desea sobreescribirlo?'))
+					warning.format_secondary_text(_(u'El archivo ya existe.\n¿Desea sobreescribirlo?'))
 					def close(w, res):
 						if res == gtk.RESPONSE_NO:
 							w.hide()
@@ -168,7 +174,7 @@ class GUI():
 		info.set_name(_('Generador de nombres aleatorios para PNJs'))
 		info.set_version('1 Beta 3')
 		info.set_license('GNU/GPL v3')
-		info.set_comments(_("Gracias a Desmenbrator por la idea.\nA javierrivera2 por sus consejos para mejorar el código\nY como no, a todos vosotros por descargarlo y usarlo ^^"))
+		info.set_comments(_(u"Gracias a Desmenbrator por la idea.\nA javierrivera2 por sus consejos para mejorar el código\nY como no, a todos vosotros por descargarlo y usarlo ^^"))
 		#info.set_website('http://github.com/son-link/RedImages-2')
 		#info.set_artists(['Otakon','Son Link'])
 		info.set_translator_credits(_('Ingles: Son Link y Google'))
@@ -185,6 +191,11 @@ class GUI():
 			w.hide()
 		warning.connect("response", close)
 		warning.run()
+		
+	def destroy(self, w):
+		gtk.main_quit()
+		sys.exit(0)
 
-GUI()
-gtk.main()
+if __name__ == "__main__":
+    GUI()
+    gtk.main()

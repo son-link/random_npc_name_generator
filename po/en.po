@@ -1,123 +1,126 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Random PNJ Name Generator 1Beta 3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-27 11:57+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alfonso Saavedra 'Son Link' <sonlink.dourden@gmail.com>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
-#: pnj.py:33 pnj.py:176
+#: pnj.py:33
+#: pnj.py:176
 msgid "Generador de nombres aleatorios para PNJs"
-msgstr ""
+msgstr "Name generator for NPCs"
 
 #: pnj.py:41
 msgid "Elija el idioma:"
-msgstr ""
+msgstr "Select language:"
 
 #: pnj.py:50
 msgid "Español"
-msgstr ""
+msgstr "Spanish"
 
 #: pnj.py:51
 msgid "Japones"
-msgstr ""
+msgstr "Japanese"
 
 #: pnj.py:52
 msgid "Ingles"
-msgstr ""
+msgstr "English"
 
 #: pnj.py:53
 msgid "Portugués"
-msgstr ""
+msgstr "Portuguese"
 
 #: pnj.py:54
 msgid "Alemán"
-msgstr ""
+msgstr "German"
 
 #: pnj.py:55
 msgid "Francés"
-msgstr ""
+msgstr "Franche"
 
 #: pnj.py:56
 msgid "Italiano"
-msgstr ""
+msgstr "Italian"
 
 #: pnj.py:57
 msgid "Ruso"
-msgstr ""
+msgstr "Russian"
 
 #: pnj.py:58
 msgid "Musulmán"
-msgstr ""
+msgstr "muslin"
 
 #: pnj.py:59
 msgid "Chino"
-msgstr ""
+msgstr "Chinese"
 
 #: pnj.py:63
 msgid "Elija el sexo:"
-msgstr ""
+msgstr "Select sex:"
 
 #: pnj.py:72
 msgid "Masculino"
-msgstr ""
+msgstr "Male"
 
 #: pnj.py:73
 msgid "Femenino"
-msgstr ""
+msgstr "Female"
 
 #: pnj.py:76
 msgid "Total a generar (1-100):"
-msgstr ""
+msgstr "Total generating (1-100):"
 
 #: pnj.py:85
 msgid "Generar listado"
-msgstr ""
+msgstr "Generate list"
 
 #: pnj.py:89
 msgid "Guardar"
-msgstr ""
+msgstr "Save"
 
 #: pnj.py:94
 msgid "Sobre"
-msgstr ""
+msgstr "About"
 
 #: pnj.py:112
 msgid "Debes de seleccionar el idioma y el sexo"
-msgstr ""
+msgstr "You have select language an sex"
 
 #: pnj.py:141
 msgid ""
 "No se pudieron abrir los archivos de texto.\n"
-"Comprueba que están en los directorios correspondientes, que los nombres "
-"sean los correctos y/o que tengas permisos de lectura sobre ellos"
+"Comprueba que están en los directorios correspondientes, que los nombres sean los correctos y/o que tengas permisos de lectura sobre ellos"
 msgstr ""
+"Could not open text files.\n"
+"Notes that are in the correct directories, the names are correct and/or have read permissions on them"
 
 #: pnj.py:151
 msgid "¡Atención!"
-msgstr ""
+msgstr "Attention"
 
 #: pnj.py:152
 msgid ""
 "El archivo ya existe.\n"
 "¿Desea sobreescribirlo?"
 msgstr ""
+"The file already exists.\n"
+"Replace?"
 
 #: pnj.py:171
 msgid ""
 "Ocurrió un error al guardar el archivo.\n"
 "Compruebe que tienes permisos de escritura en el directorio"
 msgstr ""
+"An error occurred while saving the file.\n"
+"Make sure you have write permissions on the directory"
 
 #: pnj.py:179
 msgid ""
@@ -125,11 +128,15 @@ msgid ""
 "A javierrivera2 por sus consejos para mejorar el código\n"
 "Y como no, a todos vosotros por descargarlo y usarlo ^^"
 msgstr ""
+"With the idea Desmenbrator.\n"
+"A javierrivera2 for their advice to improve the code\n"
+"And of course, to you all for download and use"
 
 #: pnj.py:182
 msgid "Ingles: Son Link y Google"
-msgstr ""
+msgstr "English: Son Link & Google"
 
 #: pnj.py:190
 msgid "¡Error!"
-msgstr ""
+msgstr "Error!"
+

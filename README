@@ -19,3 +19,6 @@ Se han corregido varios fallos en los archivos de texto (acentos en nombres y ap
 1 Beta 3:
 Se a editado el código para poder traducir el programa a otros idiomas
 Se a añadido un botón que muestra la información del programa
+1 Beta 4
+Se han corregido unos errores que inpedian la correcta traducción del español a otros idiomas.
+Se ha corregido un fallo que no cerraba el programa completamente
