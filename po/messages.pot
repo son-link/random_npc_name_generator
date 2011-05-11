@@ -8,71 +8,72 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-27 11:57+0100\n"
+"POT-Creation-Date: 2011-05-11 14:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: pnj.py:33 pnj.py:176
+#: pnj.py:31 pnj.py:174
 msgid "Generador de nombres aleatorios para PNJs"
 msgstr ""
 
-#: pnj.py:41
+#: pnj.py:39
 msgid "Elija el idioma:"
 msgstr ""
 
-#: pnj.py:50
+#: pnj.py:48
 msgid "Español"
 msgstr ""
 
-#: pnj.py:51
+#: pnj.py:49
 msgid "Japones"
 msgstr ""
 
-#: pnj.py:52
+#: pnj.py:50
 msgid "Ingles"
 msgstr ""
 
-#: pnj.py:53
+#: pnj.py:51
 msgid "Portugués"
 msgstr ""
 
-#: pnj.py:54
+#: pnj.py:52
 msgid "Alemán"
 msgstr ""
 
-#: pnj.py:55
+#: pnj.py:53
 msgid "Francés"
 msgstr ""
 
-#: pnj.py:56
+#: pnj.py:54
 msgid "Italiano"
 msgstr ""
 
-#: pnj.py:57
+#: pnj.py:55
 msgid "Ruso"
 msgstr ""
 
-#: pnj.py:58
+#: pnj.py:56
 msgid "Musulmán"
 msgstr ""
 
-#: pnj.py:59
+#: pnj.py:57
 msgid "Chino"
 msgstr ""
 
-#: pnj.py:63
+#: pnj.py:62
 msgid "Elija el sexo:"
 msgstr ""
 
-#: pnj.py:72
+#: pnj.py:71
 msgid "Masculino"
 msgstr ""
 
-#: pnj.py:73
+#: pnj.py:72
 msgid "Femenino"
 msgstr ""
 
@@ -84,52 +85,52 @@ msgstr ""
 msgid "Generar listado"
 msgstr ""
 
-#: pnj.py:89
+#: pnj.py:90
 msgid "Guardar"
 msgstr ""
 
-#: pnj.py:94
+#: pnj.py:95
 msgid "Sobre"
 msgstr ""
 
-#: pnj.py:112
-msgid "Debes de seleccionar el idioma y el sexo"
-msgstr ""
-
-#: pnj.py:141
+#: pnj.py:139
 msgid ""
 "No se pudieron abrir los archivos de texto.\n"
-"Comprueba que están en los directorios correspondientes, que los nombres "
-"sean los correctos y/o que tengas permisos de lectura sobre ellos"
+"Compruebe que estén en los directorios correspondientes, que los nombres "
+"sean los correctos y/o que tenga permisos de lectura sobre ellos"
 msgstr ""
 
-#: pnj.py:151
+#: pnj.py:149
 msgid "¡Atención!"
 msgstr ""
 
-#: pnj.py:152
+#: pnj.py:150
 msgid ""
 "El archivo ya existe.\n"
 "¿Desea sobreescribirlo?"
 msgstr ""
 
-#: pnj.py:171
+#: pnj.py:169
 msgid ""
 "Ocurrió un error al guardar el archivo.\n"
 "Compruebe que tienes permisos de escritura en el directorio"
 msgstr ""
 
-#: pnj.py:179
+#: pnj.py:177
 msgid ""
 "Gracias a Desmenbrator por la idea.\n"
 "A javierrivera2 por sus consejos para mejorar el código\n"
 "Y como no, a todos vosotros por descargarlo y usarlo ^^"
 msgstr ""
 
-#: pnj.py:182
+#: pnj.py:179
 msgid "Ingles: Son Link y Google"
 msgstr ""
 
-#: pnj.py:190
+#: pnj.py:180
+msgid "Pagina del proyecto"
+msgstr ""
+
+#: pnj.py:187
 msgid "¡Error!"
 msgstr ""

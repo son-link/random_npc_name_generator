@@ -55,6 +55,7 @@ class GUI():
 			liststore.append(['ru', _('Ruso')])
 			liststore.append(['ma', _(u'Musulmán')])
 			liststore.append(['ch', _('Chino')])
+			self.lang_select.connect('changed', self.algo)
 			
 			vbox.pack_start(self.lang_select, False, False, 0)
 			
@@ -70,6 +71,7 @@ class GUI():
 			liststore2.append(['m', _('Masculino')])
 			liststore2.append(['f', _('Femenino')])
 			vbox.pack_start(self.sex_select, False, False, 0)
+			self.sex_select.connect('changed', self.algo)
 			
 			total_label = gtk.Label(str=_('Total a generar (1-100):'))
 			sex_label.set_alignment(0, 0)
@@ -80,9 +82,10 @@ class GUI():
 			self.total_value.set_increments(1.0, 5.0)
 			vbox.pack_start(self.total_value, False, False, 0)
 			
-			generate = gtk.Button(label=_('Generar listado'))
-			generate.connect('clicked', self.generar)
-			vbox.pack_start(generate, False, False, 0)
+			self.generate = gtk.Button(label=_('Generar listado'))
+			self.generate.connect('clicked', self.generar)
+			self.generate.set_sensitive(False)
+			vbox.pack_start(self.generate, False, False, 0)
 			
 			self.save = gtk.Button(label=_('Guardar'))
 			self.save.set_sensitive(False)
@@ -106,37 +109,34 @@ class GUI():
 			mainwin.connect('destroy', self.destroy)
 		
 	def generar(self, w):
-		if not self.lang_select.get_active_text() or not self.sex_select.get_active_text():
-			self.error_dialog(_('Debes de seleccionar el idioma y el sexo'))
-		else:
-			lang = self.lang_select.get_active_text()
-			sex = self.sex_select.get_active_text()
-			total = int(self.total_value.get_text())
-			# Comprobamos antes si existen los archivos
-			txt_names = 'nombres/'+sex+'_'+lang+'.txt'
-			txt_lastnames = 'apellidos/'+lang+'.txt'
-			try:
-				self.textview.set_buffer(None)
-				self.textbuffer = self.textview.get_buffer()
-				names = open(txt_names, 'r')
-				list_names = names.readlines()
-				lastnames = open(txt_lastnames, 'r')
-				list_lastnames = lastnames.readlines()
-				i = 1
-				for i in range(0, total):
-					n = random.randint(0, len(list_names[1:]))
-					m = random.randint(0, len(list_lastnames[1:]))
-					name = list_names[n].split()[0]+" "+list_lastnames[m].split()[0]
-					i += 1
-					iter = self.textbuffer.get_end_iter()
-					self.textbuffer.insert(iter, name+"\n")
+		lang = self.lang_select.get_active_text()
+		sex = self.sex_select.get_active_text()
+		total = int(self.total_value.get_text())
+		# Comprobamos antes si existen los archivos
+		txt_names = 'nombres/'+sex+'_'+lang+'.txt'
+		txt_lastnames = 'apellidos/'+lang+'.txt'
+		try:
+			self.textview.set_buffer(None)
+			self.textbuffer = self.textview.get_buffer()
+			names = open(txt_names, 'r')
+			list_names = names.readlines()
+			lastnames = open(txt_lastnames, 'r')
+			list_lastnames = lastnames.readlines()
+			i = 1
+			for i in range(0, total):
+				n = random.randint(0, len(list_names[1:]))
+				m = random.randint(0, len(list_lastnames[1:]))
+				name = list_names[n].split()[0]+" "+list_lastnames[m].split()[0]
+				i += 1
+				iter = self.textbuffer.get_end_iter()
+				self.textbuffer.insert(iter, name+"\n")
 						
-				names.close()
-				lastnames.close()
-				self.save.set_sensitive(True)
-						
-			except:
-				self.error_dialog(_('No se pudieron abrir los archivos de texto.\nComprueba que están en los directorios correspondientes, que los nombres sean los correctos y/o que tengas permisos de lectura sobre ellos'))
+			names.close()
+			lastnames.close()
+			self.save.set_sensitive(True)
+				
+		except:
+			self.error_dialog(_('No se pudieron abrir los archivos de texto.\nCompruebe que estén en los directorios correspondientes, que los nombres sean los correctos y/o que tenga permisos de lectura sobre ellos'))
 				
 	def save_on_file(self, w):
 		try:
@@ -172,13 +172,12 @@ class GUI():
 		# esta funcion se limita a mostrar y cerrar el dialogo de la info
 		info = gtk.AboutDialog()
 		info.set_name(_('Generador de nombres aleatorios para PNJs'))
-		info.set_version('1 Beta 3')
+		info.set_version('1 RC 1')
 		info.set_license('GNU/GPL v3')
 		info.set_comments(_(u"Gracias a Desmenbrator por la idea.\nA javierrivera2 por sus consejos para mejorar el código\nY como no, a todos vosotros por descargarlo y usarlo ^^"))
-		#info.set_website('http://github.com/son-link/RedImages-2')
-		#info.set_artists(['Otakon','Son Link'])
+		info.set_website('http://sonlinkblog.blogspot.com')
 		info.set_translator_credits(_('Ingles: Son Link y Google'))
-		#info.set_website_label(_("The proyect website"))
+		info.set_website_label(_("Pagina del proyecto"))
 		def close(w, res):
 			w.hide()
 		info.connect("response", close)
@@ -192,6 +191,10 @@ class GUI():
 		warning.connect("response", close)
 		warning.run()
 		
+	def algo(self, w):
+		if self.lang_select.get_active_text() and self.sex_select.get_active_text():
+			self.generate.set_sensitive(True)
+	
 	def destroy(self, w):
 		gtk.main_quit()
 		sys.exit(0)

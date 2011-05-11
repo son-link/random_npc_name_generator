@@ -13,12 +13,18 @@ python-gtk2
 Historia:
 1 Beta 1:
 Primera beta de programa.
+
 1 Beta 2:
 Se han corregido varias lineas del código para hacerlo mas claro y entendible.
 Se han corregido varios fallos en los archivos de texto (acentos en nombres y apellidos españoles y pasar a letra capital los apellidos chinos)
+
 1 Beta 3:
 Se a editado el código para poder traducir el programa a otros idiomas
 Se a añadido un botón que muestra la información del programa
-1 Beta 4
+
+1 Beta 4:
 Se han corregido unos errores que inpedian la correcta traducción del español a otros idiomas.
 Se ha corregido un fallo que no cerraba el programa completamente
+
+1 RC 1:
+Ahora el botón que invoca la función que genera los nombres no es pulsable hasta que se elija idioma y sexo
