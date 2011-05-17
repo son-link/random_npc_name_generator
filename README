@@ -33,4 +33,4 @@ Añadido el fichero con los términos de la licencia del programa
 
 1.0:
 Versión definitiva del programa. Se a corregido un aviso y ahora detecta el idioma del sistema en Windows para poner el pograma en ingles si no esta en español el sistema
-
+Se a corregido los apellidos rusos ya que los acabados en -ov, -ev e -in si son para mujeres se les añade una 'a' al final
