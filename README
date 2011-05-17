@@ -30,3 +30,7 @@ Se ha corregido un fallo que no cerraba el programa completamente
 1 RC 1:
 Ahora el botón que invoca la función que genera los nombres no es pulsable hasta que se elija idioma y sexo
 Añadido el fichero con los términos de la licencia del programa
+
+1.0:
+Versión definitiva del programa. Se a corregido un aviso y ahora detecta el idioma del sistema en Windows para poner el pograma en ingles si no esta en español el sistema
+

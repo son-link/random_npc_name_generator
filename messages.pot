@@ -1,133 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Random PNJ Name Generator 1Beta 3\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-05-17 15:18+0200\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Alfonso Saavedra \"Son Link\" <sonlink.dourden@gmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: English\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 #: pnj.py:29
 msgid ""
 "No tienes permisos de lectura en las carpeta names y/o lastnames\n"
 "Compruebe los permisos"
-msgstr "You don't have read permisions on names and/or lastnames directories"
+msgstr ""
 
-#: pnj.py:33
-#: pnj.py:181
+#: pnj.py:33 pnj.py:181
 msgid "Generador de nombres aleatorios para PNJs"
-msgstr "Name generator for NPCs"
+msgstr ""
 
 #: pnj.py:41
 msgid "Elija el idioma:"
-msgstr "Select language:"
+msgstr ""
 
 #: pnj.py:50
 msgid "Español"
-msgstr "Spanish"
+msgstr ""
 
 #: pnj.py:51
 msgid "Japones"
-msgstr "Japanese"
+msgstr ""
 
 #: pnj.py:52
 msgid "Ingles"
-msgstr "English"
+msgstr ""
 
 #: pnj.py:53
 msgid "Portugués"
-msgstr "Portuguese"
+msgstr ""
 
 #: pnj.py:54
 msgid "Alemán"
-msgstr "German"
+msgstr ""
 
 #: pnj.py:55
 msgid "Francés"
-msgstr "Franche"
+msgstr ""
 
 #: pnj.py:56
 msgid "Italiano"
-msgstr "Italian"
+msgstr ""
 
 #: pnj.py:57
 msgid "Ruso"
-msgstr "Russian"
+msgstr ""
 
 #: pnj.py:58
 msgid "Musulmán"
-msgstr "muslin"
+msgstr ""
 
 #: pnj.py:59
 msgid "Chino"
-msgstr "Chinese"
+msgstr ""
 
 #: pnj.py:64
 msgid "Elija el sexo:"
-msgstr "Select sex:"
+msgstr ""
 
 #: pnj.py:73
 msgid "Masculino"
-msgstr "Male"
+msgstr ""
 
 #: pnj.py:74
 msgid "Femenino"
-msgstr "Female"
+msgstr ""
 
 #: pnj.py:78
 msgid "Total a generar (1-100):"
-msgstr "Total generating (1-100):"
+msgstr ""
 
 #: pnj.py:87
 msgid "Generar listado"
-msgstr "Generate list"
+msgstr ""
 
 #: pnj.py:92
 msgid "Guardar"
-msgstr "Save"
+msgstr ""
 
 #: pnj.py:97
 msgid "Sobre"
-msgstr "About"
+msgstr ""
 
 #: pnj.py:146
 msgid ""
 "No se pudieron abrir los archivos de texto.\n"
-"Compruebe que estén en los directorios correspondientes, que los nombres sean los correctos y/o que tenga permisos de lectura sobre ellos"
+"Compruebe que estén en los directorios correspondientes, que los nombres "
+"sean los correctos y/o que tenga permisos de lectura sobre ellos"
 msgstr ""
-"Could not open text files.\n"
-"Notes that are in the correct directories, the names are correct and/or have read permissions on them"
 
 #: pnj.py:151
 msgid "Seleccione donde se guardaran los nombres"
-msgstr "Select where to save names"
+msgstr ""
 
 #: pnj.py:156
 msgid "¡Atención!"
-msgstr "Attention"
+msgstr ""
 
 #: pnj.py:157
 msgid ""
 "El archivo ya existe.\n"
 "¿Desea sobreescribirlo?"
 msgstr ""
-"The file already exists.\n"
-"Replace?"
 
 #: pnj.py:176
 msgid ""
 "Ocurrió un error al guardar el archivo.\n"
 "Compruebe que tienes permisos de escritura en el directorio"
 msgstr ""
-"An error occurred while saving the file.\n"
-"Make sure you have write permissions on the directory"
 
 #: pnj.py:185
 msgid ""
@@ -135,21 +132,15 @@ msgid ""
 "A javierrivera2 por sus consejos para mejorar el código\n"
 "Y como no, a todos vosotros por descargarlo y usarlo ^^"
 msgstr ""
-"With the idea Desmenbrator.\n"
-"A javierrivera2 for their advice to improve the code\n"
-"And of course, to you all for download and use"
 
 #: pnj.py:187
 msgid "Ingles: Son Link y Google"
-msgstr "English: Son Link & Google"
+msgstr ""
 
 #: pnj.py:188
 msgid "Pagina del proyecto"
-msgstr "Project webpage"
+msgstr ""
 
 #: pnj.py:195
 msgid "¡Error!"
-msgstr "Error!"
-
-#~ msgid "Debes de seleccionar el idioma y el sexo"
-#~ msgstr "You have select language an sex"
+msgstr ""

@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+# Note: if you use Arch Linux, add the number 2 at the end of python -> python2
 # -*- coding: utf-8 -*-
 
 # Generador de nombres aleatorios para pnj para partidas de rol
@@ -6,16 +7,17 @@
 # Programado por Alfonso Saavedra "Son Link"
 # Bajo licencia GPL 3
 
-import sys, os, random, gtk, gobject
-from optparse import OptionParser
+import random, gtk, sys
 import gettext, locale
+from os import access, path, R_OK
+
 APP = 'pnj'
 gettext.textdomain (APP)
 gettext.bindtextdomain (APP, './locale')
 _ = gettext.gettext
 gettext.install(APP, './locale', unicode=1)
 
-loc = locale.getlocale()[0]
+loc = locale.getdefaultlocale()[0]
 if loc.find('es') == -1:
 	# Si el idioma del sistema no es el español en cualquiera de sus variantes, se coge el ingles por defecto
 	lang = gettext.translation(APP, './locale', languages=['en'])
@@ -24,8 +26,9 @@ if loc.find('es') == -1:
 class GUI():
 	def __init__(self):
 		# Comprobamos antes de nada que los 2 directorios existen y que tienen permisos de ejecucion
-		if not os.access('nombres', os.R_OK) or not os.access('apellidos', os.R_OK):
-			print 'No tienes permisos de lectura en los directorios'
+		if not access('names', R_OK) or not access('lastnames', R_OK):
+			self.error_dialog(_('No tienes permisos de lectura en las carpeta names y/o lastnames\nCompruebe los permisos'))
+			sys.exit(1)
 		else:
 			mainwin = gtk.Window()
 			mainwin.set_title(_('Generador de nombres aleatorios para PNJs'))
@@ -55,7 +58,7 @@ class GUI():
 			liststore.append(['ru', _('Ruso')])
 			liststore.append(['ma', _(u'Musulmán')])
 			liststore.append(['ch', _('Chino')])
-			self.lang_select.connect('changed', self.algo)
+			self.lang_select.connect('changed', self.check_combobox)
 			
 			vbox.pack_start(self.lang_select, False, False, 0)
 			
@@ -71,7 +74,7 @@ class GUI():
 			liststore2.append(['m', _('Masculino')])
 			liststore2.append(['f', _('Femenino')])
 			vbox.pack_start(self.sex_select, False, False, 0)
-			self.sex_select.connect('changed', self.algo)
+			self.sex_select.connect('changed', self.check_combobox)
 			
 			total_label = gtk.Label(str=_('Total a generar (1-100):'))
 			sex_label.set_alignment(0, 0)
@@ -113,9 +116,9 @@ class GUI():
 		sex = self.sex_select.get_active_text()
 		total = int(self.total_value.get_text())
 		# Comprobamos antes si existen los archivos
-		txt_names = 'nombres/'+sex+'_'+lang+'.txt'
-		txt_lastnames = 'apellidos/'+lang+'.txt'
-		try:
+		txt_names = 'names/'+sex+'_'+lang+'.txt'
+		txt_lastnames = 'lastnames/'+lang+'.txt'
+		if access(txt_names, R_OK) or access(txt_lastnames, R_OK):
 			self.textview.set_buffer(None)
 			self.textbuffer = self.textview.get_buffer()
 			names = open(txt_names, 'r')
@@ -126,26 +129,31 @@ class GUI():
 			for i in range(0, total):
 				n = random.randint(0, len(list_names[1:]))
 				m = random.randint(0, len(list_lastnames[1:]))
-				name = list_names[n].split()[0]+" "+list_lastnames[m].split()[0]
+				name = list_names[n].split()[0]
+				lastname = list_lastnames[m].split()[0]
+				if lang == 'ru' and sex == 'f' and lastname.endswith('ov') or lastname.endswith('ev') or lastname.endswith('in'):
+					fullname = list_names[n].split()[0]+" "+list_lastnames[m].split()[0]+'a'
+				else:
+					fullname = list_names[n].split()[0]+" "+list_lastnames[m].split()[0]
 				i += 1
 				iter = self.textbuffer.get_end_iter()
-				self.textbuffer.insert(iter, name+"\n")
+				self.textbuffer.insert(iter, fullname+"\n")
 						
 			names.close()
 			lastnames.close()
 			self.save.set_sensitive(True)
 				
-		except:
+		else:
 			self.error_dialog(_('No se pudieron abrir los archivos de texto.\nCompruebe que estén en los directorios correspondientes, que los nombres sean los correctos y/o que tenga permisos de lectura sobre ellos'))
 				
 	def save_on_file(self, w):
 		try:
 			txt = self.textbuffer.get_text(self.textbuffer.get_start_iter(), self.textbuffer.get_end_iter())
-			select_files = gtk.FileChooserDialog(title='Seleccione los ficheros a reproducir',action=gtk.FILE_CHOOSER_ACTION_SAVE, buttons=(gtk.STOCK_SAVE,gtk.RESPONSE_OK, gtk.STOCK_CANCEL,gtk.RESPONSE_CANCEL))
+			select_files = gtk.FileChooserDialog(title=_('Seleccione donde se guardaran los nombres'),action=gtk.FILE_CHOOSER_ACTION_SAVE, buttons=(gtk.STOCK_SAVE,gtk.RESPONSE_OK, gtk.STOCK_CANCEL,gtk.RESPONSE_CANCEL))
 			response = select_files.run()
 			if response == gtk.RESPONSE_OK:
 				select_files.hide()
-				if os.path.exists(select_files.get_filenames()[0]):
+				if path.exists(select_files.get_filenames()[0]):
 					warning = gtk.MessageDialog(parent=None, flags=0, type=gtk.MESSAGE_WARNING, buttons=gtk.BUTTONS_YES_NO, message_format=_("¡Atención!"))
 					warning.format_secondary_text(_(u'El archivo ya existe.\n¿Desea sobreescribirlo?'))
 					def close(w, res):
@@ -172,7 +180,7 @@ class GUI():
 		# esta funcion se limita a mostrar y cerrar el dialogo de la info
 		info = gtk.AboutDialog()
 		info.set_name(_('Generador de nombres aleatorios para PNJs'))
-		info.set_version('1 RC 1')
+		info.set_version('1.0')
 		f = open('COPYING', 'r')
 		info.set_license(f.read())
 		info.set_comments(_(u"Gracias a Desmenbrator por la idea.\nA javierrivera2 por sus consejos para mejorar el código\nY como no, a todos vosotros por descargarlo y usarlo ^^"))
@@ -192,13 +200,12 @@ class GUI():
 		warning.connect("response", close)
 		warning.run()
 		
-	def algo(self, w):
+	def check_combobox(self, w):
 		if self.lang_select.get_active_text() and self.sex_select.get_active_text():
 			self.generate.set_sensitive(True)
 	
 	def destroy(self, w):
 		gtk.main_quit()
-		sys.exit(0)
 
 if __name__ == "__main__":
     GUI()
