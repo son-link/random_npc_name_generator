@@ -34,3 +34,9 @@ Añadido el fichero con los términos de la licencia del programa
 1.0:
 Versión definitiva del programa. Se a corregido un aviso y ahora detecta el idioma del sistema en Windows para poner el pograma en ingles si no esta en español el sistema
 Se a corregido los apellidos rusos ya que los acabados en -ov, -ev e -in si son para mujeres se les añade una 'a' al final
+
+1.1:
+Se a añadido la posibilidad de exportar a hojas CSV (idea de Theck, de Rápido y Fácil)
+Se han añadido espacios entre las distintas partes del programa para una mejor lectura y visibilidad
+Se han creado 2 funciones nuevas, una destinada a la generación del archivo del texto y otra a la de las hojas csv para una mejor optimización del código
+Ahora los diálogos de aviso se centran en la ventana principal
